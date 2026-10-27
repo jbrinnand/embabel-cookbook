@@ -98,8 +98,8 @@ class FlightConditionAgent {
 
     private static final Logger logger = LoggerFactory.getLogger(FlightConditionAgent.class);
 
-    @Action(description = "Analyze the flight request", post = {"directFlightRequested", "stopsAllowed"}) // <2>
     // tag::analyze-request[]
+    @Action(description = "Analyze the flight request", post = {"directFlightRequested", "stopsAllowed"}) // <2>
     FlightRoutingRequest analyzeFlightRequest(UserInput userInput, OperationContext context) {
         var request = new FlightRoutingRequest(userInput, isDirectFlightOnly(userInput.getContent()));
         context.setCondition("directFlightRequested", request.directFlightOnly());
